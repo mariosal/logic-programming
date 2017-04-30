@@ -7,13 +7,13 @@ greater([H | T], N, [1 | M]) :-
     H > N,
     greater(T, N, M).
 
-% Looping N though 0 and checking if the sum of the "greater" list is equal to N
+% Looping N to 0 and checking if the sum of the "greater" list is equal to N
 check(L, N, K) :-
     N >= 0,
     greater(L, N, K),
     sumlist(K, N).
 check(L, N, P) :-
-    N >= 0,
+    N > 0,
     greater(L, N, K),
     sumlist(K, M),
     N =\= M,
