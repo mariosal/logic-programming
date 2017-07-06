@@ -29,7 +29,7 @@ hcvrp(NCl, NVe, Timeout, Solution, Cost, Time) :-
 
   flatten(Routes, FlatRoutes),
   setOccurrence(NCl, FlatRoutes),
-  bb_min(search(FlatRoutes, 0, most_constrained, indomain, complete, []), Cost, bb_options{timeout: Timeout}),
+  bb_min(search(FlatRoutes, 0, input_order, indomain, complete, []), Cost, bb_options{timeout: Timeout}),
   getNonZero(Routes, Solution),
   cputime(Finish),
   Time is round((Finish - Start) * 100) / 100, !.
